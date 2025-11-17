@@ -18,15 +18,15 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="I will explain the core idea of RL, and the two simple RL algorithms Q-Learning and SARSA.">
+        <meta name="description" content="A brief introduction to RL.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Introduction to Reinforcement Learning">
 <meta property="og:url" content="http://whuang369.com/blog/2025/03/22/CS/Machine_Learning/Reinforcement_Learning/RL_Intro/index.html">
 <meta property="og:site_name" content="Harry Huang &#x2F; Wenyuan Huang">
-<meta property="og:description" content="I will explain the core idea of RL, and the two simple RL algorithms Q-Learning and SARSA.">
+<meta property="og:description" content="A brief introduction to RL.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-03-22T07:13:34.109Z">
-<meta property="article:modified_time" content="2025-08-11T20:06:40.891Z">
+<meta property="article:modified_time" content="2025-11-17T03:44:06.226Z">
 <meta property="article:author" content="Harry Huang">
 <meta property="article:tag" content="Machine Learning">
 <meta property="article:tag" content="Reinforcement Learning">
@@ -571,7 +571,7 @@ mjx-container[display="true"] + br {
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/blog/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">19</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">20</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -623,8 +623,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-08-11 15:06:40</span>
-            <span class="mobile">2025-08-11 15:06:40</span>
+            <span class="desktop">2025-11-16 21:44:06</span>
+            <span class="mobile">2025-11-16 21:44:06</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -726,33 +726,109 @@ li {
   font-size: 11.2pt;
 }
 </style>
-<h2 id="what-is-rl">What is RL?</h2>
-<p>Reinforcement Learning (RL) is about making decisions under given
-situations. Go is a great example about the problems that RL is good at:
-players are given the current chessboard, then they need to make the
-most optimal move. In the sense of RL, we call the current chess board
-"state", and the moves from player "actions". A good RL algorithm for Go
-(like Alpha Go) should be able to make an optimal action for any given
-possible state.</p>
-<p>There are many other kind of Machine Learning (ML) that are able to
-make choices from given information. For instance, Computer Vision
-models classify the objects in given images. The peculiarity of RL is:
-it learns from interactions with an "environment", especially the
-"rewards" from the interactions.</p>
-<p>"Environment" refers to everything outside the RL agent that the
-agent interacts with. It receives actions from agents, and give
-"feedback", usually consists of states and rewards back to the agent. In
-the example of Go, the environment receives the move of the agent and
-responds by updating the game board and possibly signaling the end of
-the game. It may also include an opponent who makes the next move. After
-each interaction, the environment returns a new state (the updated
-board) and a reward (such as +1 for winning, 0 for a draw, or -1 for
-losing). Over time, the RL agent learns which actions lead to better
-long-term rewards by exploring different strategies and adjusting its
-behavior based on the feedback it receives. This trial-and-error
-learning process is what distinguishes RL from other forms of machine
-learning.</p>
-<p>To be continued</p>
+<h1 id="introduction-to-reinforcement-learning-rl">Introduction to
+Reinforcement Learning (RL)</h1>
+<p>Reinforcement Learning (RL) is a field of machine learning focused on
+<strong>decision-making</strong>. A simple way to understand RL is
+through the game of <strong>Go</strong>. At any moment, a player sees
+the current board configuration (the <strong>state</strong>) and must
+choose one of many possible legal <strong>actions</strong> (moves). A
+strong RL algorithm for Go (such as AlphaGo) is able to choose an
+effective action for <em>any</em> given state.</p>
+<p>RL differs from other types of machine learning—such as computer
+vision classification—in one fundamental way:<br>
+<strong>RL agents learn through continuous interaction with an external
+“environment,” primarily through the rewards they receive.</strong></p>
+<h2 id="what-is-an-environment">What Is an Environment?</h2>
+<p>The <strong>environment</strong> includes everything the agent
+interacts with. It accepts the agent’s actions and produces feedback,
+typically in the form of <strong>new states and rewards</strong>.</p>
+<p>In Go, the environment receives a move, updates the board, checks if
+the game ended, and provides a corresponding reward (e.g., +1 for a win,
+0 for a draw, −1 for a loss). Over repeated interactions, the RL agent
+learns which strategies produce higher long-term rewards.<br>
+This trial-and-error learning process is what distinguishes RL from
+other machine learning paradigms.</p>
+<h2 id="the-markov-property">The Markov Property</h2>
+<p>In many RL settings, the agent must choose actions <strong>based only
+on the current observation</strong>. For this to work, we require the
+<strong>Markov Property</strong>:</p>
+<blockquote>
+<p><strong>The future evolution of the process depends only on its
+current state, not on the sequence of past events that led
+there.</strong></p>
+</blockquote>
+<p>This ensures that an optimal policy can be defined as a function of
+the current state alone.</p>
+<p>Of course, many real-world scenarios violate the Markov
+Property.<br>
+For example, in RoboCup, a robot’s camera cannot capture the full soccer
+field. The agent’s observation is incomplete, making the true state
+partially observable. Researchers often design clever observation
+functions or memory mechanisms (e.g., recurrent networks) to approximate
+Markovian behavior, but perfect Markovness is rarely achievable in
+practice.</p>
+<h2 id="formalizing-reinforcement-learning">Formalizing Reinforcement
+Learning</h2>
+<p>A typical RL problem is defined by the following components:</p>
+<ol type="1">
+<li><strong>State space</strong> (S): all possible states the agent can
+observe.<br>
+</li>
+<li><strong>Action space</strong> (A): all actions the agent can
+take.<br>
+</li>
+<li><strong>Reward function</strong> (r(s, a)): the immediate reward
+after taking action (a) in state (s).<br>
+</li>
+<li><strong>Policy</strong> ((s)): a rule or function describing how the
+agent selects actions.</li>
+</ol>
+<p>The objective in RL is to find an <strong>optimal policy</strong>—one
+that maximizes the expected long-term reward.</p>
+<h2 id="example-gridworld">Example: Gridworld</h2>
+<p>To make this concrete, consider a simple environment called
+<strong>Gridworld</strong>.</p>
+<p>An agent moves on an (N M) grid and tries to reach a specific goal
+cell ((g_x, g_y)). Each step allows the agent to move <strong>up, down,
+left, or right</strong>. When it reaches the goal, the episode ends and
+the agent receives a reward of +1; otherwise, each step incurs a small
+penalty of −0.01 to discourage wandering.</p>
+<p>The formal components are:</p>
+<ol type="1">
+<li><p><strong>State space</strong>:<br>
+[ (A_x, A_y), (G_x, G_y) A_x, G_x {1N}, A_y, G_y {1M}. ]<br>
+Here ((A_x, A_y)) is the agent’s location, and ((G_x, G_y)) is the
+goal’s location.</p></li>
+<li><p><strong>Action space</strong>:<br>
+[ a {(0,1), (0,-1), (1,0), (-1,0)}, ]<br>
+corresponding to the four possible movement directions.</p></li>
+<li><p><strong>Reward function</strong>:</p>
+<ul>
+<li>(+1) if the agent reaches the goal<br>
+</li>
+<li>(-0.01) otherwise</li>
+</ul></li>
+<li><p><strong>Optimal policy</strong>:<br>
+Move toward the goal using the shortest path.</p></li>
+</ol>
+<p>This is one of the simplest examples of an RL task, but it already
+illustrates how states, actions, and rewards interact.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>This post gives only a brief introduction to RL. Real RL research
+involves far more complexity. Even seemingly simple components—like the
+reward function—can dramatically affect an agent’s ability to learn. For
+instance, in the Gridworld example, the agent rarely reaches the goal
+early in training, so relying solely on the sparse +1 reward makes
+learning extremely difficult.</p>
+<p>Designing the <strong>state representation</strong>, <strong>action
+space</strong>, and <strong>reward function</strong> is often one of the
+hardest parts of building an RL system.</p>
+<p>Among the many RL algorithm families, <strong>Policy Gradient
+methods</strong> have become increasingly popular in modern research and
+applications.<br>
+In the next article, we will begin exploring them—starting from the most
+fundamental algorithm: <strong>REINFORCE</strong>.</p>
 
         </div>
 
@@ -767,7 +843,7 @@ learning.</p>
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-08-11 15:06:40
+                    :</strong> 2025-11-16 21:44:06
             </li>
         
         <li>
@@ -817,7 +893,7 @@ learning.</p>
                                 <i class="fa-solid fa-chevron-left"></i>
                             </span>
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">From REINFORCE to PPO - Intro to REINFORCE</span>
+                                <span class="post-nav-title-item">Intro to REINFORCE</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -910,7 +986,9 @@ learning.</p>
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">Introduction to Reinforcement Learning</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-is-rl"><span class="nav-number">1.</span> <span class="nav-text">What is RL?</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction-to-reinforcement-learning-rl"><span class="nav-number">1.</span> <span class="nav-text">Introduction to
+Reinforcement Learning (RL)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-is-an-environment"><span class="nav-number">1.1.</span> <span class="nav-text">What Is an Environment?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-markov-property"><span class="nav-number">1.2.</span> <span class="nav-text">The Markov Property</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#formalizing-reinforcement-learning"><span class="nav-number">1.3.</span> <span class="nav-text">Formalizing Reinforcement
+Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-gridworld"><span class="nav-number">1.4.</span> <span class="nav-text">Example: Gridworld</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#final-thoughts"><span class="nav-number">1.5.</span> <span class="nav-text">Final Thoughts</span></a></li></ol></li></ol>
 
     </div>
 </div>
@@ -943,7 +1021,7 @@ learning.</p>
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        19 posts in total
+                        20 posts in total
                     </span>
                     
                 </p>

@@ -13,17 +13,23 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://whuang369.com/blog/tags/math475/"/>
+    <link rel="canonical" href="http://whuang369.com/blog/2025/11/16/cs/machine_learning/reinforcement_learning/policy_gradient_homepage/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta property="og:type" content="website">
-<meta property="og:title" content="Harry Huang &#x2F; Wenyuan Huang">
-<meta property="og:url" content="http://whuang369.com/blog/tags/MATH475/index.html">
+        <meta name="description" content="The home page of PG series.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="From REINFORCE to PPO&#x2F;GRPO - Homepage">
+<meta property="og:url" content="http://whuang369.com/blog/2025/11/16/CS/Machine_Learning/Reinforcement_Learning/Policy_Gradient_Homepage/index.html">
 <meta property="og:site_name" content="Harry Huang &#x2F; Wenyuan Huang">
+<meta property="og:description" content="The home page of PG series.">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-11-17T03:40:09.291Z">
+<meta property="article:modified_time" content="2025-11-17T03:52:48.439Z">
 <meta property="article:author" content="Harry Huang">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Reinforcement Learning">
 <meta name="twitter:card" content="summary">
     
     
@@ -36,7 +42,7 @@
     
     <title>
         
-            Tag: MATH475 | Harry Huang&#39;s Blog
+            From REINFORCE to PPO/GRPO - Homepage | Harry Huang&#39;s Blog
         
     </title>
 
@@ -99,7 +105,119 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -473,59 +591,301 @@
             <div class="main-content">
 
                 
-                    <div class="tag-container">
-	<div class="tag-name">
-		<i class="fa-solid fa-tag"></i>&nbsp;MATH475
-	</div>
-	<div class="tag-post-list">
-		
-<div class="archive-list-container">
-    
-        <section class="archive-item mb-spacing-unit last:mb-0">
-            <div class="archive-item-header flex flex-row items-center mb-2">
-                <span class="archive-year font-semibold text-3xl mr-2">2024</span>
-                <span class="archive-year-post-count text-xs md:text-sm font-bold rounded-small bg-third-background-color py-[2px] px-[10px] border border-border-color">2</span>
-            </div>
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
             
-            <ul class="article-list pl-0 md:pl-8 text-lg leading-[1.5]">
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">From REINFORCE to PPO/GRPO - Homepage</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/blog/images/Profile_Photo.JPG">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Harry Huang (aka Wenyuan Huang, 黄问远)</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-11-16 21:40:09</span>
+        <span class="mobile">2025-11-16 21:40:09</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-11-16 21:52:48</span>
+            <span class="mobile">2025-11-16 21:52:48</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
                 
-                    
-                    
-                         <!-- Close the previous LI if not the first item -->
-                        <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='11-25'>
-                    
-                    <a href="/blog/2024/11/25/Math/Combinatorics/chain_antichain/" class="block w-fit">
-                        <span class="article-title my-0.5 text-2xl">Chain and Antichain</span>
-                    </a>
-                    
                 
-                    
                     
                         
-                            </li>
-                         <!-- Close the previous LI if not the first item -->
-                        <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='11-19'>
+                        <li>
+                            <a href="/blog/categories/Computer-Science/">Computer Science</a>&nbsp;
+                        </li>
                     
-                    <a href="/blog/2024/11/19/Math/Combinatorics/Generating_Functions/" class="block w-fit">
-                        <span class="article-title my-0.5 text-2xl">Generating Functions</span>
-                    </a>
                     
                 
-                </li> <!-- Ensure the last item is properly closed -->
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/blog/categories/Computer-Science/Machine-Learning/">Machine Learning</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/blog/categories/Computer-Science/Machine-Learning/Reinforcement-Learning/">Reinforcement Learning</a>&nbsp;
+                        </li>
+                    
+                    
+                
             </ul>
-        </section>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/blog/tags/Machine-Learning/">Machine Learning</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/blog/tags/Reinforcement-Learning/">Reinforcement Learning</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
-	</div>
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <style>
+h1{
+  font-family: Menlo, monospace;
+}
+h2{
+  font-family: Menlo, monospace;
+}
+h3{
+  font-family: Menlo, monospace;
+}
+h4{
+  font-family: Menlo, monospace;
+}
+p{
+  font-family: Menlo, monospace;
+  font-size: 12pt;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+li {
+  font-family: Menlo, monospace;
+  font-size: 11.2pt;
+}
+</style>
+<p>This is the home page of my RL series <strong>From REINFORCE to
+PPO/GRPO</strong>. I will develop from the most basic policy gradient RL
+algorithm REINFOCE, to the widely used modern RL algorithms PPO and
+GRPO.</p>
+<p><a href="https://whuang369.com/blog/2025/03/22/CS/Machine_Learning/Reinforcement_Learning/RL_Intro/">Introduction
+to RL</a></p>
+<p><a href="https://whuang369.com/blog/2025/08/13/CS/Machine_Learning/Reinforcement_Learning/Policy_Gradient_Algorithm_1/">REINFORCE</a></p>
+<p><a href="https://whuang369.com/blog/2025/08/14/CS/Machine_Learning/Reinforcement_Learning/Policy_Gradient_Algorithm_2/">On-policy
+and Off-policy</a></p>
+<p>I will keep updating this series.</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> From REINFORCE to PPO/GRPO - Homepage</li>
+        <li><strong>Author:</strong> Harry Huang (aka Wenyuan Huang, 黄问远)</li>
+        <li><strong>Created at
+                :</strong> 2025-11-16 21:40:09</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-11-16 21:52:48
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://whuang369.com/blog/2025/11/16/CS/Machine_Learning/Reinforcement_Learning/Policy_Gradient_Homepage/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
 </div>
 
-<div class="tag-paginator">
-	<div class="paginator">
-    <span class="page-number current">1</span>
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/blog/tags/Machine-Learning/">#Machine Learning</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/blog/tags/Reinforcement-Learning/">#Reinforcement Learning</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/blog/2025/10/12/Math/Abstract_Algebra/Intro_to_Module_Theory/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Introduction to Module Theory</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-swup-reload-script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js"></script>
+    <script data-swup-reload-script>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'Ov23lir58By8OYCIERZF',
+                    clientSecret: '5125a863acb7735bf66c9c09db2cc90e7fbcbc3f',
+                    repo: 'gitalk',
+                    owner: 'whuang369',
+                    admin: ['whuang369'],
+                    id: __gitalk__pathname,
+                    language: 'en',
+                    proxy: 'https://strong-caramel-969805.netlify.app/github_access_token'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
 </div>
 
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">From REINFORCE to PPO/GRPO - Homepage</div>
+        
+
+    </div>
 </div>
+        </div>
+    
+</div>
+
 
 
                 
@@ -608,6 +968,27 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-side-tools-container">
